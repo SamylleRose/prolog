@@ -1,0 +1,11 @@
+%  Quais dos seguintes objetos estão sintaticamente corretos e a que tipo de objeto pertencem?
+% a. Daniela (correto, é uma variavel)
+% b. daniela (correto, é um atomo)
+% c. 'Daniela' (correto, é um atomo)
+% d. _daniela (correto, é uma variavel)
+% e. 'Daniela vai a Paris' (correto)
+% f. vai(daniela, paris) (correto, é um fato)
+% g. 8118 (correto é uma constante numerica)
+% h. 2(X, Y) (incorreto)
+% i. +(sul, oeste) (correto)
+% j. três(Cavalos(Baios)) (correto)

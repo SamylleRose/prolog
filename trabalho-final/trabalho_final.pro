@@ -146,24 +146,34 @@ subconjunto(dor_nas_articulacoes, sintomas_gerais).
 subconjunto(silibos, sintomas_respiratorios).
 subconjunto(hemoptise, sintomas_respiratorios).
 
-doenca_possui_sintomas(Doenca, Sintomas) :-
-    findall(Sintoma, sintoma(Doenca, Sintoma), SintomasDaDoenca),
-    intersection(SintomasDaDoenca, Sintomas, SintomasComuns),
-    length(SintomasComuns, CommonCount),
-    length(Sintomas, TotalCount),
-    CommonCount > 0,
-    CommonCount >= TotalCount * 0.001.
+% doenca_possui_sintomas(Doenca, Sintomas) :-
+%     findall(Sintoma, sintoma(Doenca, Sintoma), SintomasDaDoenca),
+%     intersection(SintomasDaDoenca, Sintomas, SintomasComuns),
+%     length(SintomasComuns, CommonCount),
+%     length(Sintomas, TotalCount),
+%     CommonCount > 0,
+%     CommonCount >= TotalCount * 0.001.
 
-possiveis_doencas(Sintomas, PossiveisDoencas) :-
-    findall(Doenca, (sintoma(Doenca, _), doenca_possui_sintomas(Doenca, Sintomas)), PossiveisDoencas).
+% possiveis_doencas(Sintomas, PossiveisDoencas) :-
+%     findall(Doenca, (sintoma(Doenca, _), doenca_possui_sintomas(Doenca, Sintomas)), PossiveisDoencas).
 
-main :- 
-    writeln('Digite os sintomas que você está sentindo, separados por vírgula:'),
-    read_line_to_string(user_input, SintomasInput),
-    atomic_list_concat(SintomasList, ',', SintomasInput),
-    possiveis_doencas(SintomasList, PossiveisDoencas),
-    list_to_set(PossiveisDoencas, DoencasUnicas),
-    writeln('Possíveis doenças:'),
-    writeln(DoencasUnicas).
+% main :- 
+%     writeln('Digite os sintomas que você está sentindo, separados por vírgula:'),
+%     read_line_to_string(user_input, SintomasInput),
+%     atomic_list_concat(SintomasList, ',', SintomasInput),
+%     possiveis_doencas(SintomasList, PossiveisDoencas),
+%     list_to_set(PossiveisDoencas, DoencasUnicas),
+%     writeln('Possíveis doenças:'),
+%     writeln(DoencasUnicas).
 
-:- initialization(main).
+% :- initialization(main).
+
+% Definindo um predicado para adicionar sintomas a uma doença
+% adicionar_sintoma(Doenca, NovoSintoma) :-
+%     assertz(sintoma(Doenca, NovoSintoma)).
+
+% % Definindo um predicado para adicionar uma nova doença
+% adicionar_doenca(Doenca, NovosSintomas) :-
+%     maplist(adicionar_sintoma(Doenca), NovosSintomas).
+
+% :- dynamic sintoma/2. % Declarando que o predicado sintoma/2 pode ser modificado dinamicamente
